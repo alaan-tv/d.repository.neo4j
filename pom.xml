@@ -35,6 +35,11 @@
             <artifactId>core-common</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>org.neo4j.driver</groupId>
+            <artifactId>neo4j-java-driver</artifactId>
+            <version>1.4.4</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -75,11 +80,12 @@
 
                 <configuration>
                     <instructions>
+                        <Bundle-Activator>media.dee.repository.activator.RepositoryBundleActivator</Bundle-Activator>
                         <Bundle-SymbolicName>DeeCMSRepositoryBundle</Bundle-SymbolicName>
                         <Bundle-Vendor>DeeCMS</Bundle-Vendor>
-                        <Import-Package>media.dee.core.repository.api.*</Import-Package>
+                        <Import-Package>media.dee.core.*, org.osgi.framework.*, org.neo4j.driver.v1.*</Import-Package>
                         <Private-Package>*</Private-Package>
-
+                        <Export-Package>media.dee.repository.*</Export-Package>
                     </instructions>
                 </configuration>
             </plugin>
