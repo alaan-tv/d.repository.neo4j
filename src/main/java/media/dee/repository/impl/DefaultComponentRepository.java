@@ -30,7 +30,10 @@ public class DefaultComponentRepository  implements ComponentRepository {
                                  .build(new CacheLoader<String, String>() {
                                 @Override
                                 public String load(String componentID) throws Exception {
-                                    String qry = "MATCH(c:Component{id:{componentID}}) RETURN C.query as query";
+                                    /*
+                                        MATCH(c:Component{id:{componentID}}), MATCH(p:POST) WHERE p.post_id in c.posts RETURN p;
+                                     */
+                                    String qry = "MATCH(c:Component{id:{componentID}})-[:HAS]-(cfg:ComponentConfig) RETURN cfg.query as query";
                                      Map result = queryExecutor.fetchOne(qry, Collections.singletonMap("componentID",componentID)).asMap();
                                      return result.get("query").toString();
                                 }
