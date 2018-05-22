@@ -8,6 +8,15 @@
     <artifactId>neo4j-repository</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>bundle</packaging>
+    <name>DeeCMS Neo4j Repository</name>
+
+    <licenses>
+        <license>
+            <name>GNU LGPL 3</name>
+            <url>http://www.gnu.org/licenses/lgpl.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
 
     <dependencies>
         <dependency>
@@ -32,18 +41,13 @@
         </dependency>
         <dependency>
             <groupId>media.dee.dcms</groupId>
-            <artifactId>core-common</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <artifactId>core</artifactId>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>org.neo4j.driver</groupId>
             <artifactId>neo4j-java-driver</artifactId>
             <version>1.4.4</version>
-        </dependency>
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>19.0</version>
         </dependency>
     </dependencies>
 
@@ -85,12 +89,7 @@
 
                 <configuration>
                     <instructions>
-                        <Bundle-Activator>media.dee.repository.activator.RepositoryBundleActivator</Bundle-Activator>
-                        <Bundle-SymbolicName>DeeCMSRepositoryBundle</Bundle-SymbolicName>
-                        <Bundle-Vendor>DeeCMS</Bundle-Vendor>
-                        <Import-Package>media.dee.core.*, org.osgi.framework.*, org.neo4j.driver.v1.*</Import-Package>
-                        <Private-Package>*</Private-Package>
-                        <Export-Package>media.dee.repository.*</Export-Package>
+                        <Bundle-Category>d.CMS</Bundle-Category>
                     </instructions>
                 </configuration>
             </plugin>
