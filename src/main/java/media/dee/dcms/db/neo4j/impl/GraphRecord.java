@@ -67,7 +67,13 @@ public class GraphRecord implements Record {
 
     @Override
     public Object get(Object key) {
-        return record.get((String)key);
+        Value value = record.get((String)key);
+        switch (value.type().name()){
+            case "NODE":
+                return value.asNode().asMap();
+            default:
+                return value.asObject();
+        }
     }
 
     @Override

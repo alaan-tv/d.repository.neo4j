@@ -47,7 +47,7 @@
         <dependency>
             <groupId>org.neo4j.driver</groupId>
             <artifactId>neo4j-java-driver</artifactId>
-            <version>1.4.4</version>
+            <version>1.6.1</version>
         </dependency>
     </dependencies>
 
@@ -90,6 +90,7 @@
                 <configuration>
                     <instructions>
                         <Bundle-Category>d.CMS</Bundle-Category>
+                        <Bundle-Vendor>dee.media</Bundle-Vendor>
                     </instructions>
                 </configuration>
             </plugin>
