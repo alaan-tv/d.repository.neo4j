@@ -14,6 +14,18 @@ public class GraphRecord implements Record {
 
     private Function<Value, Object> mapValue = Value::asObject;
 
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> T get(String key) {
+        Value value = record.get(key);
+        switch (value.type().name()){
+            case "NODE":
+                return (T)new Neo4jGraphNode(value.asNode());
+            default:
+                return (T)value.asObject();
+        }
+    }
+
     private class RecordEntry implements Entry<String, Object>{
         private String key;
         private Object value;
@@ -67,13 +79,7 @@ public class GraphRecord implements Record {
 
     @Override
     public Object get(Object key) {
-        Value value = record.get((String)key);
-        switch (value.type().name()){
-            case "NODE":
-                return value.asNode().asMap();
-            default:
-                return value.asObject();
-        }
+        return get(key.toString());
     }
 
     @Override
