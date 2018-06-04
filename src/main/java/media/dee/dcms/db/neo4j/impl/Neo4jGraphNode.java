@@ -16,13 +16,13 @@
 
 package media.dee.dcms.db.neo4j.impl;
 
-import media.dee.dcms.core.GraphNode;
+import media.dee.dcms.core.db.GraphDatabaseService;
 import org.neo4j.driver.v1.Value;
 import org.neo4j.driver.v1.types.Node;
 
 import java.util.*;
 
-public class Neo4jGraphNode implements GraphNode {
+public class Neo4jGraphNode implements GraphDatabaseService.GraphNode {
     private Node node;
 
 
