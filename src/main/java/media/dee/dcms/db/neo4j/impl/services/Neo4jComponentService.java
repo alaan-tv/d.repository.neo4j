@@ -23,11 +23,16 @@ public class Neo4jComponentService implements ComponentService {
 
     @SuppressWarnings("unchecked")
     @Override
-    public Map<String, Object> findComponentById(long componentId) {
+    public Record findComponentById(long componentId) {
         Map<String, Object> params = new HashMap<>();
         params.put("id", componentId);
         try {
-            return (Map<String, Object>) graphDatabaseService.fetchOne("MATCH (c:Component{id: {id} }) return c", params).get("c");
+            return graphDatabaseService.fetchOne(
+                    "MATCH (template:Component{id: {id} })-[:SCRIPT]->(script)\r\n" +
+                            "MATCH (template:Component{id: {id} })-[:STYLE]->(style)\r\n" +
+                            "return template, script, style",
+                    params
+            );
         } catch (NoSuchRecordException e) {
             throw new RuntimeException(e);
         }
