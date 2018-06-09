@@ -10,4 +10,9 @@ The plugin requires configuration to start as the following:
     - url: Neo4j URL Connection
     - sessionMax: Neo4j Session Max
     - livenessCheckout: Neo4j Connection Liveness Check Timeout
+    
+    
+## Dependencies
+Neo4j module requires the following OSGI modules to be installed.
+- neo4j driver: install using command `bundle:install install mvn:org.neo4j.driver/neo4j-java-driver/1.4.4`
    
