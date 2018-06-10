@@ -1,3 +1,4 @@
+[![Build Status](https://semaphoreci.com/api/v1/dee-media/d-repository-neo4j/branches/master/badge.svg)](https://semaphoreci.com/dee-media/d-repository-neo4j)
 # d.repository.neo4j
 
 Implementation to GraphDataBaseService to provide managed connection to neo4j connection.
